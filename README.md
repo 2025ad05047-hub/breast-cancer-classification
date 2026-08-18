@@ -199,8 +199,7 @@ ML-Assignment-2/
 ## 10. GitHub Repository
 
 GitHub Repository Link:
-
-Add GitHub repository link here.
+https://github.com/2025ad05047-hub/breast-cancer-classification
 
 ---
 
@@ -208,4 +207,4 @@ Add GitHub repository link here.
 
 Streamlit Application Link:
 
-Add deployed Streamlit application link here.
+https://breast-cancer-classification-2025ad05047.streamlit.app/
