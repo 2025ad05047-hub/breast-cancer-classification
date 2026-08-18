@@ -2,46 +2,50 @@
 
 ## 1. Problem Statement
 
-Breast cancer is one of the most common types of cancer, and early detection is important for effective treatment. The objective of this project is to develop and compare multiple machine learning classification models for predicting whether a breast tumor is benign or malignant based on diagnostic measurements.
+The main objective of this project is to predict whether a breast tumor is Benign or Malignant using Machine Learning classification algorithms.
 
-Five machine learning classification algorithms are implemented and evaluated on the same dataset. Their performance is compared using multiple evaluation metrics.
+Breast cancer detection is an important classification problem because early identification of malignant cases can help in further diagnosis and treatment.
+
+In this project, I have implemented five different Machine Learning classification models on the same dataset. After training the models, I compared their performance using different evaluation metrics to find which model gives the best overall result.
 
 ---
 
 ## 2. Dataset Description
 
-**Dataset:** Breast Cancer Wisconsin Diagnostic Dataset
+**Dataset Name:** Breast Cancer Wisconsin Diagnostic Dataset
 
-**Source:** Kaggle / Wisconsin Diagnostic Breast Cancer Dataset
+**Source:** Kaggle
 
-The dataset contains diagnostic measurements of breast mass samples. Each sample is classified as either benign or malignant.
+The dataset contains different measurements of breast mass samples which are used to identify whether the tumor is Benign or Malignant.
 
-- Total instances: 569
-- Predictive features used: 30
-- Target variable: `diagnosis`
-- Classification type: Binary Classification
+The dataset contains:
 
-### Target Classes
+- Total Records: 569
+- Input Features: 30
+- Target Column: `diagnosis`
+- Problem Type: Binary Classification
+
+### Target Values
 
 - `0` = Benign
 - `1` = Malignant
 
-The `id` column was removed because it is only an identifier and does not provide useful information for classification.
+The `id` column was removed because it is only used for identification and does not help the Machine Learning model in prediction.
 
 The dataset was divided into:
 
 - 80% Training Data
 - 20% Testing Data
 
-A stratified train-test split was used to preserve the class distribution.
+I used stratified train-test splitting so that the distribution of Benign and Malignant cases remains similar in both training and testing data.
 
-StandardScaler was applied for models that benefit from feature scaling.
+Feature scaling using `StandardScaler` was also applied for the models where scaling is useful.
 
 ---
 
 ## 3. Machine Learning Models Used
 
-The following five classification models were implemented:
+I implemented the following five classification models:
 
 1. Logistic Regression
 2. Decision Tree Classifier
@@ -49,13 +53,13 @@ The following five classification models were implemented:
 4. Gaussian Naive Bayes
 5. Random Forest Classifier
 
-Random Forest was used as the ensemble learning model.
+Random Forest was used as the Ensemble Learning model.
 
 ---
 
 ## 4. Evaluation Metrics
 
-Each model was evaluated using the following metrics:
+To compare the performance of all models, I used the following evaluation metrics:
 
 - Accuracy
 - AUC Score
@@ -63,6 +67,8 @@ Each model was evaluated using the following metrics:
 - Recall
 - F1 Score
 - Matthews Correlation Coefficient (MCC)
+
+Using multiple evaluation metrics gives a better understanding of model performance instead of depending only on Accuracy.
 
 ---
 
@@ -82,33 +88,56 @@ Each model was evaluated using the following metrics:
 
 ### Logistic Regression
 
-Logistic Regression achieved an accuracy of 96.49% and the highest AUC score of 99.60%. It also achieved 97.50% precision and 92.86% recall. The results indicate that Logistic Regression performs very well for this binary classification problem.
+Logistic Regression performed very well on the dataset. It achieved an Accuracy of 96.49% and the highest AUC score of 99.60%.
+
+The model also achieved 97.50% Precision and 92.86% Recall. Overall, Logistic Regression gave very good and balanced classification results.
 
 ### Decision Tree
 
-Decision Tree achieved an accuracy of 92.98%. Its precision, recall and F1 score were approximately 90.48%. Although the model performed reasonably well, its overall performance was lower than Logistic Regression, KNN and Random Forest.
+Decision Tree achieved an Accuracy of 92.98%.
+
+Its Precision, Recall and F1 Score were around 90.48%. The model performed reasonably well, but its overall performance was lower compared to Logistic Regression, KNN and Random Forest.
 
 ### K-Nearest Neighbors (KNN)
 
-KNN achieved an accuracy of 95.61% with a precision of 97.44%. Its AUC score was 98.23%. Feature scaling was important for KNN because the algorithm determines classes based on distances between observations.
+KNN achieved an Accuracy of 95.61% and Precision of 97.44%.
+
+Its AUC score was 98.23%, which shows good classification performance.
+
+Feature scaling was important for KNN because KNN works by calculating the distance between data points.
 
 ### Gaussian Naive Bayes
 
-Naive Bayes achieved an accuracy of 92.11% and an AUC score of 98.91%. However, its recall was 85.71%, which was the lowest among the evaluated models. This indicates that Naive Bayes missed more malignant cases than the other models.
+Naive Bayes achieved an Accuracy of 92.11% and a good AUC score of 98.91%.
+
+However, its Recall was 85.71%, which was the lowest among all five models.
+
+This means Naive Bayes missed more Malignant cases compared to the other models.
 
 ### Random Forest
 
-Random Forest achieved the highest accuracy of 97.37%. It achieved 100% precision, a recall of 92.86%, an F1 score of 96.30%, and the highest MCC value of 0.9442. It showed strong overall performance across the evaluation metrics.
+Random Forest gave the best overall performance.
+
+It achieved the highest Accuracy of 97.37% and a Precision of 100%.
+
+It also achieved:
+
+- Recall: 92.86%
+- F1 Score: 96.30%
+- MCC: 0.9442
+- AUC: 99.29%
+
+Random Forest performed strongly across almost all the evaluation metrics.
 
 ---
 
 ## 7. Overall Winner
 
-**Random Forest Classifier**
+### Random Forest Classifier
 
-Random Forest was selected as the overall best-performing model.
+Based on the overall comparison, I selected **Random Forest as the best-performing model**.
 
-It achieved:
+Random Forest achieved:
 
 - Accuracy: 97.37%
 - AUC: 99.29%
@@ -117,29 +146,33 @@ It achieved:
 - F1 Score: 96.30%
 - MCC: 0.9442
 
-Although Logistic Regression achieved a slightly higher AUC score, Random Forest achieved the highest accuracy, precision, F1 score and MCC. Therefore, Random Forest demonstrated the strongest overall classification performance.
+Logistic Regression achieved a slightly higher AUC score of 99.60%.
+
+However, Random Forest achieved the highest Accuracy, Precision, F1 Score and MCC among all the models.
+
+Therefore, based on the overall performance across different evaluation metrics, **Random Forest was selected as the final winner**.
 
 ---
 
 ## 8. Streamlit Application
 
-An interactive Streamlit application was developed for evaluating the trained machine learning models.
+I developed an interactive Streamlit application to test and compare the trained Machine Learning models.
 
-The application provides:
+The application provides the following features:
 
-- CSV test dataset upload
-- Model selection using a dropdown
-- Evaluation of the selected model
-- Accuracy
-- AUC
-- Precision
-- Recall
-- F1 Score
-- MCC
-- Confusion Matrix
-- Classification Report
+- Upload test dataset in CSV format
+- Select a Machine Learning model from the dropdown
+- Evaluate the selected model
+- Display Accuracy
+- Display AUC Score
+- Display Precision
+- Display Recall
+- Display F1 Score
+- Display MCC
+- Display Confusion Matrix
+- Display Classification Report
 
-The application allows users to compare the performance of the five trained classification models on the test dataset.
+The user can select any of the five trained models and check its performance on the uploaded test dataset.
 
 ---
 
@@ -167,7 +200,7 @@ ML-Assignment-2/
 
 GitHub Repository Link:
 
-To be added after uploading the project to GitHub.
+Add GitHub repository link here.
 
 ---
 
@@ -175,4 +208,4 @@ To be added after uploading the project to GitHub.
 
 Streamlit Application Link:
 
-To be added after deployment on Streamlit Community Cloud.
+Add deployed Streamlit application link here.
